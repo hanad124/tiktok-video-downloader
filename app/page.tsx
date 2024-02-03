@@ -12,7 +12,6 @@ export default function Home() {
       <Header />
       <HeroSection />
       <Fields />
-      <Result />
       <Toaster />
     </div>
   );

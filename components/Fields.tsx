@@ -8,6 +8,7 @@ import { z } from "zod";
 import { formSchema } from "@/schemas/index";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import { useVideo } from "@/store/video";
 
 import {
   Form,
@@ -19,10 +20,15 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import Result from "./Result";
 
 const Fields = () => {
   const { toast } = useToast();
   const [clearInput, setClearInput] = useState("");
+  const video = useVideo((state) => state.video);
+  const loading = useVideo((state) => state.loading);
+  const notTiktokLink = useVideo((state) => state.notTiktokLink);
+  const fetchVideo = useVideo((state) => state.fetchVideo);
 
   useEffect(() => {
     setClearInput("");
@@ -36,7 +42,15 @@ const Fields = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {};
+  const onSubmit = (data: z.infer<typeof formSchema>) => {
+    fetchVideo(data.url);
+    if (notTiktokLink) {
+      toast({
+        title: "Invalid TikTok link",
+        description: "Please enter a valid TikTok link",
+      });
+    }
+  };
 
   return (
     <div>
@@ -44,14 +58,14 @@ const Fields = () => {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className=" flex flex-col md:flex-row justify-center gap-2 items-center w-full mx-6 md:mx-none"
+            className=" flex flex-col md:flex-row justify-center items-center w-full mx-6 md:mx-none"
           >
             <div className="flex items-center ">
               <FormField
                 control={form.control}
                 name="url"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="relative">
                     <FormControl>
                       <input
                         type="text"
@@ -61,6 +75,9 @@ const Fields = () => {
                       />
                       {/* <Input placeholder="shadcn" {...field} /> */}
                     </FormControl>
+                    <div className="absolute top-14 left-6 text-center">
+                      <FormMessage />
+                    </div>
                   </FormItem>
                 )}
               />
@@ -76,6 +93,8 @@ const Fields = () => {
           </form>
         </Form>
       </div>
+
+      <Result video={video} loader={loading} invalidLink={notTiktokLink} />
     </div>
   );
 };
