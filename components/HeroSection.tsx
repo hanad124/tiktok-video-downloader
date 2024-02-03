@@ -30,8 +30,8 @@ const HeroSection = () => {
 
           <div className="mt-5 max-w-3xl text-center mx-auto">
             <p className="text-lg text-gray-600 dark:text-gray-400">
-              Download TikTok videos without watermark in high quality. It's
-              free and easy to use.
+              Download TikTok videos without watermark in high quality.
+              It&apos;s free and easy to use.
             </p>
           </div>
         </div>
