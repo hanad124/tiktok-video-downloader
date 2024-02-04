@@ -58,7 +58,6 @@ function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-          <p className="cursor-pointer">About</p>
         </div>
       </div>
     </div>
