@@ -119,9 +119,11 @@ const Result: React.FC<ResultProps> = ({ video, loader, invalidLink }) => {
           <>
             <CardFooter>
               <CardDescription>
-                <div className="flex items-center gap-2 bg-red-500/20 px-10 py-3 rounded-md">
-                  <FiAlertTriangle className="text-red-500" />
-                  <p className="text-red-500">Invalid TikTok link</p>
+                <div className="flex items-center gap-4 bg-red-500/20 px-10 py-3 rounded-md">
+                  <FiAlertTriangle className="text-red-500 text-xl" />
+                  <p className="text-red-500">
+                    Invalid TikTok link, please enter a valid link.
+                  </p>
                 </div>
               </CardDescription>
             </CardFooter>
