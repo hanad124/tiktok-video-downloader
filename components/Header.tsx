@@ -19,7 +19,7 @@ function Header() {
 
   return (
     <div>
-      <div className="flex justify-between items-center px-10 py-4 mt-4">
+      <div className="flex justify-between items-center px-10 py-2 lg:mx-28 mt-4">
         <div className="flex items-center gap-2">
           <Image
             src={logo}

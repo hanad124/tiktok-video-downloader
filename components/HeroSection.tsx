@@ -4,7 +4,7 @@ import { FiCheck } from "react-icons/fi";
 const HeroSection = () => {
   return (
     <div>
-      <div className="">
+      <div className="mt-16 md:mt-6">
         <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-10">
           <div className="flex justify-center">
             <a
