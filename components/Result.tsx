@@ -34,7 +34,7 @@ const Result: React.FC<ResultProps> = ({ video, loader, invalidLink }) => {
 
   return (
     <>
-      <div className=" w-full flex justify-center my-10">
+      <div className="px-4 md:px-0  w-full flex justify-center my-10">
         {noVideoData ? null : (
           <Card className="w-full md: max-w-[400px]">
             <CardHeader>

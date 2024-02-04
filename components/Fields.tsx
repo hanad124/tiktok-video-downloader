@@ -58,22 +58,21 @@ const Fields = () => {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className=" flex flex-col md:flex-row justify-center items-center w-full mx-6 md:mx-none"
+            className=" flex flex-col md:flex-row gap-x-2 gap-y-4 justify-center items-center w-full mx-6 md:mx-none"
           >
-            <div className="flex items-center ">
+            <div className="flex items-center w-full md:w-auto">
               <FormField
                 control={form.control}
                 name="url"
                 render={({ field }) => (
-                  <FormItem className="relative">
+                  <FormItem className="relative w-full">
                     <FormControl>
                       <input
                         type="text"
                         placeholder="Paste TikTok video link here"
-                        className="items-center  bg-white border border-gray-200 text-sm text-gray-800 p-1 px-3 py-3 w-full md:w-[36rem] transition hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 dark:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 rounded-md mx-4 md:mx-none"
+                        className="items-center  bg-white border border-gray-200 text-sm text-gray-800 p-1 px-3 py-3 w-full md:w-[36rem] transition hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 dark:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 rounded-md  "
                         {...field}
                       />
-                      {/* <Input placeholder="shadcn" {...field} /> */}
                     </FormControl>
                     <div className="absolute top-14 left-6 text-center">
                       <FormMessage />
@@ -84,11 +83,7 @@ const Fields = () => {
             </div>
             <button className="w-full md:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-none focus:ring-none py-3 px-4 dark:focus:ring-offset-none ">
               Download
-              <FiDownload
-                className="
-          w-4 h-4
-          "
-              />
+              <FiDownload className="w-4 h-4" />
             </button>
           </form>
         </Form>
