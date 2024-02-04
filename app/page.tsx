@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import Image from "next/image";
 
 import { Toaster } from "@/components/ui/toaster";
+import Result from "@/components/Result";
 
 export default function Home() {
   return (
