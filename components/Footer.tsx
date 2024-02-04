@@ -57,7 +57,7 @@ const Footer = () => {
             https://www.facebook.com/hanad.faaruuq/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold"
+              className="font-bold"
             >
               Hanad Faaruuq
             </a>
