@@ -3,6 +3,7 @@
 import React from "react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -11,14 +12,29 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import logo from "@/public/assets/logo.svg";
 
 function Header() {
   const { setTheme } = useTheme();
 
   return (
     <div>
-      <div className="flex justify-between items-center px-10 py-4">
-        <div className="">Logo</div>
+      <div className="flex justify-between items-center px-10 py-4 mt-4">
+        <div className="flex items-center gap-2">
+          <Image
+            src={logo}
+            alt="logo"
+            width={40}
+            height={40}
+            className="w-15 h-15"
+          />
+          <p className="text-2xl font-bold">
+            <span className="text-primary">Tik-Vid</span>
+            <span className="bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent ml-2">
+              Down
+            </span>
+          </p>
+        </div>
         <div className="flex items-center gap-3">
           <div className="">
             <DropdownMenu>
