@@ -7,6 +7,7 @@ const nextConfig = {
       "p16-sign-useast2a.tiktokcdn.com",
       "p16-sign-va.tiktokcdn.com",
       "p16-sign-useast2a.tiktokcdn.com",
+      "p16-sign.tiktokcdn-us.com",
     ],
   },
 };

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { FiDownload, FiX } from "react-icons/fi";
+import { FiDownload, FiX, FiLoader } from "react-icons/fi";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -81,8 +81,25 @@ const Fields = () => {
                 )}
               />
             </div>
-            <button className="w-full md:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-none focus:ring-none py-3 px-4 dark:focus:ring-offset-none ">
-              Download
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full md:w-auto inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 border border-transparent text-white text-sm font-medium rounded-md focus:outline-none focus:ring-none focus:ring-none py-3 px-4 dark:focus:ring-offset-none 
+              ${
+                loading
+                  ? "cursor-not-allowed bg-gradient-to-tl from-blue-600/30 to-violet-600/30"
+                  : ""
+              }
+               `}
+            >
+              {loading ? (
+                <>
+                  <FiLoader className="animate-spin w-4 h-4" />{" "}
+                </>
+              ) : (
+                <></>
+              )}
+              <span>Download</span>
               <FiDownload className="w-4 h-4" />
             </button>
           </form>
