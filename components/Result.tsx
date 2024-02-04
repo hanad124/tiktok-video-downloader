@@ -63,7 +63,7 @@ const Result: React.FC<ResultProps> = ({ video, loader, invalidLink }) => {
                     {video.author.nickname} | {video.author.unique_id}
                   </p>
                 </div>
-                <p className="text-left text-gray-600  max-w-[400px]">
+                <p className="text-left text-gray-600  max-w-[350px] text-wrap break-words">
                   {" "}
                   {video.title.slice(0, 80) +
                     (video.title.length > 80 ? "..." : "")}
