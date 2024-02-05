@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import Result from "./Result";
+import { useQueryState } from "next-usequerystate";
 
 const Fields = () => {
   const { toast } = useToast();
@@ -29,6 +30,7 @@ const Fields = () => {
   const loading = useVideo((state) => state.loading);
   const notTiktokLink = useVideo((state) => state.notTiktokLink);
   const fetchVideo = useVideo((state) => state.fetchVideo);
+  const [url, setUrl] = useQueryState("url");
 
   useEffect(() => {
     setClearInput("");
@@ -42,8 +44,13 @@ const Fields = () => {
     },
   });
 
+  useEffect(() => {
+    form.setValue("url", url);
+  }, [url]);
+
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     fetchVideo(data.url);
+
     if (notTiktokLink) {
       toast({
         title: "Invalid TikTok link",
@@ -71,8 +78,12 @@ const Fields = () => {
                         <input
                           type="text"
                           placeholder="Paste TikTok video link here"
+                          value={url}
                           className="items-center  bg-white border border-gray-200 text-sm text-gray-800 p-1 px-3 py-3 w-full md:w-[36rem] transition hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 dark:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 rounded-md  "
-                          {...field}
+                          onChange={(e) => {
+                            setUrl(e.target.value);
+                          }}
+                          // {...field}
                         />
                         <button
                           type="submit"
