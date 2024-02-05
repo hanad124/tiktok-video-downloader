@@ -1,8 +1,23 @@
 # TikTok Video Downloader 📹
 
-This project is built using `Next.js 14 server actions` and `Tailwind CSS`, designed to streamline the process of downloading TikTok videos by providing a user-friendly interface. The web application allows users to download TikTok videos swiftly and without watermarks, ensuring a seamless and efficient experience.
+This project is built using `Next.js 14 server actions & Zustandnpm` and `Tailwind CSS`, designed to streamline the process of downloading TikTok videos by providing a user-friendly interface. The web application allows users to download TikTok videos swiftly and without watermarks, ensuring a seamless and efficient experience.
 
 [![Portfolio Preview](./public/assets/showCase-1.svg)](https://tiktok-video-downloader.netlify.app/)
+
+<!-- live website -->
+
+[![Live Preview](https://img.shields.io/badge/View%20Live%20Website-000?style=for-the-badge&logo=vercel&logoColor=white)](https://tiktok-video-downloader.netlify.app/)
+
+![GitHub stars](https://img.shields.io/github/stars/hanad124/tiktok-video-downloader?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/hanad124/tiktok-video-downloader?style=for-the-badge) ![GitHub issues](https://img.shields.io/github/issues/hanad124/tiktok-video-downloader?style=for-the-badge) ![GitHub pull requests](https://img.shields.io/github/issues-pr/hanad124/tiktok-video-downloader?style=for-the-badge)
+
+## Table of Contents
+
+- [TikTok Video Downloader 📹](#tiktok-video-downloader-)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Tech Stack](#tech-stack)
+  - [Installation](#installation)
+  - [License](#license)
 
 ## Features
 
