@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { FiDownload, FiX, FiLoader } from "react-icons/fi";
+import { FiRadio, FiX, FiLoader } from "react-icons/fi";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -22,15 +22,17 @@ import {
 import { Input } from "@/components/ui/input";
 import Result from "./Result";
 import { useQueryState } from "next-usequerystate";
+import { useImage } from "@/store/image";
 
 const Fields = () => {
   const { toast } = useToast();
   const [clearInput, setClearInput] = useState("");
-  const video = useVideo((state) => state.video);
-  const loading = useVideo((state) => state.loading);
-  const notTiktokLink = useVideo((state) => state.notTiktokLink);
-  const fetchVideo = useVideo((state) => state.fetchVideo);
-  const [url, setUrl] = useQueryState("url");
+  const image = useImage((state) => state.image);
+  const loading = useImage((state) => state.loading);
+  const notImageUrl = useImage((state) => state.notImageUrl);
+  const fetchImage = useImage((state) => state.fetchImage);
+  const chartData = useImage((state) => state.chartData);
+  const [url, setUrl] = useState("url");
 
   useEffect(() => {
     setClearInput("");
@@ -49,12 +51,14 @@ const Fields = () => {
   }, [url]);
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    fetchVideo(data.url);
+    fetchImage(data.url);
 
-    if (notTiktokLink) {
+    console.log("data", data);
+
+    if (notImageUrl) {
       toast({
-        title: "Invalid TikTok link",
-        description: "Please enter a valid TikTok link",
+        title: "Invalid Image URL",
+        description: "Please enter a valid image URL",
       });
     }
   };
@@ -77,10 +81,11 @@ const Fields = () => {
                       <>
                         <input
                           type="text"
-                          placeholder="Paste TikTok video link here"
-                          value={url}
+                          placeholder="Paste image URL here"
+                          // value={url}
                           className="items-center  bg-white border border-gray-200 text-sm text-gray-800 p-1 px-3 py-3 w-full md:w-[36rem] transition hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 dark:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 rounded-md  "
                           onChange={(e) => {
+                            e.preventDefault();
                             setUrl(e.target.value);
                           }}
                           // {...field}
@@ -97,13 +102,17 @@ const Fields = () => {
                         >
                           {loading ? (
                             <>
-                              <FiLoader className="animate-spin w-4 h-4" />{" "}
+                              <div className="flex items-center gap-x-2">
+                                <span>Interferring</span>
+                                <FiLoader className="animate-spin w-4 h-4" />{" "}
+                              </div>
                             </>
                           ) : (
-                            <></>
+                            <>
+                              <span>Interfer</span>
+                              <FiRadio className="w-5 h-5" />
+                            </>
                           )}
-                          <span>Download</span>
-                          <FiDownload className="w-4 h-4" />
                         </button>
                       </>
                     </FormControl>
@@ -116,7 +125,17 @@ const Fields = () => {
         </Form>
       </div>
 
-      <Result video={video} loader={loading} invalidLink={notTiktokLink} />
+      <Result
+        image={image}
+        loader={loading}
+        invalidLink={notImageUrl}
+        chartData={
+          chartData || {
+            classes: [],
+            confidences: [],
+          }
+        }
+      />
     </div>
   );
 };

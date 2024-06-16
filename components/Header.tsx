@@ -21,17 +21,19 @@ function Header() {
     <div>
       <div className="flex justify-between items-center px-10 py-2 lg:mx-28 mt-4">
         <div className="flex items-center gap-2">
-          <Image
+          {/* <Image
             src={logo}
             alt="logo"
             width={40}
             height={40}
             className="w-15 h-15"
-          />
+          /> */}
           <p className="text-2xl font-bold">
-            <span className="text-primary">Tik-Vid</span>
+            <span className="text-primary">
+              Dental <span className="">Disease</span>
+            </span>
             <span className="bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent ml-2">
-              Down
+              Detection
             </span>
           </p>
         </div>

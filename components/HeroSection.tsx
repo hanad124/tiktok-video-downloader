@@ -14,24 +14,25 @@ const HeroSection = () => {
               <span>
                 <FiCheck />
               </span>
-              Download TikTok vidoes without watermark
+              Detect dental diseases in X-ray images
               <span></span>
             </a>
           </div>
 
           <div className="mt-5 max-w-2xl text-center mx-auto">
             <h1 className="block font-bold text-gray-800 text-4xl md:text-3xl lg:text-5xl dark:text-gray-200 tracking-wide">
-              TikTok Video
+              Dental Disease
               <span className="bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent ml-2">
-                Downloader
+                Detection
               </span>
             </h1>
           </div>
 
           <div className="mt-5 max-w-3xl text-center mx-auto">
             <p className="text-lg text-gray-600 dark:text-gray-400">
-              Download TikTok videos without watermark in high quality.
-              It&apos;s free and easy to use.
+              Detect dental diseases in X-ray images with the help of machine
+              learning models. This tool helps to identify the presence of
+              diseases in the teeth.
             </p>
           </div>
         </div>
